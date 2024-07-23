@@ -13,35 +13,34 @@ import Proyectos from '../components/Proyectos.astro';
 
 <Layout title="Portafolio">
     <main class="mx-12">
-        <section class="flex justify-center flex-col items-center h-screen">
-            <Image src={FotoMia} alt="Una foto elegante mía" width="300" height="300" class="fotomia m-10" />
-            <div class="display-flex align-center justify-center flex-wrap">
-                <h1 class="md:text-5xl text-4xl my-4 font-bold text-center">Hola 👋 soy José Manuel.</h1>
-            </div>
-            <h2 class="md:text-2xl text-xl text-pretty text-center">Desarrollador web <b class="text-amber-300">fullstack junior.</b> De CDMX, México 🇲🇽.
-                
-                Creando desde sitios estáticos hasta aplicaciones dinámicas.
-            </h2>
-            <nav class="flex justify-center items-center gap-4 my-6">
-                <SocialMediaPill href="#p">
-                    <CurriculumIcon />
-                    Curriculim
-                </SocialMediaPill>
-                <SocialMediaPill href="https://github.com/Lstrappare">
-                    <GithubIcon />
-                    Github
-                </SocialMediaPill>
-                <SocialMediaPill href="linkedin.com/in/josé-manuel-cisneros-valero-1b7a3b258">
-                    <LinkedinIcon />
-                    Linkedin
-                </SocialMediaPill>
-            </nav>
-            <a href="#proyectos" class="absolute bottom-6 left-1/2 -translate-x-1/2 down">
-                <title>Abajo...</title>
-                <DownIcon class="w-10 h-10 animate-bounce" /> 
-            </a>              
+        <section>
+            <header class="flex justify-center flex-col items-center ">
+                <Image src={FotoMia} alt="Una foto elegante mía" width="300" height="300" class="fotomia m-10 z-20" />
+                <div class="display-flex align-center justify-center flex-wrap">
+                    <h1 class="md:text-5xl text-4xl my-4 font-bold text-center">Hola 👋 soy José Manuel.</h1>
+                </div>
+                <h2 class="md:text-2xl text-xl text-pretty text-center">Desarrollador web <b class="text-amber-300">fullstack junior.</b> De CDMX, México 🇲🇽. Creando desde sitios estáticos hasta aplicaciones dinámicas.</h2>
+                <nav class="flex justify-center items-center gap-4 my-6 flex-col sm:flex-row">
+                    <SocialMediaPill href="#p">
+                        <CurriculumIcon />
+                        Curriculim
+                    </SocialMediaPill>
+                    <SocialMediaPill href="https://github.com/Lstrappare">
+                        <GithubIcon />
+                        Github
+                    </SocialMediaPill>
+                    <SocialMediaPill href="https://www.linkedin.com/in/jos%C3%A9-manuel-cisneros-valero-1b7a3b258/">
+                        <LinkedinIcon />
+                        Linkedin
+                    </SocialMediaPill>
+                </nav>
+                <a href="#proyectos" class="flex justify-center my-6 down">
+                    <title>Abajo...</title>
+                    <DownIcon class="w-10 h-10 animate-bounce" /> 
+                </a>              
+            </header>
         </section>
-        <section class="h-screen pt-24" id="proyectos">
+        <section class="pt-24" id="proyectos">
             <h2 class="md:text-4xl text-3xl flex items-center gap-4 font-bold"><CodeIcon class="w-10 h-10" />Proyectos</h2>
             <Proyectos />
         </section>  
@@ -52,19 +51,6 @@ import Proyectos from '../components/Proyectos.astro';
     .fotomia {
         filter: contrast(1.08) brightness(1.05);
         mask-image: linear-gradient(black 80%, transparent);
-    }
-
-    .custom-bounce {
-        animation: bounce 1s infinite;
-    }
-
-    @keyframes bounce {
-        0%, 100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-10px);
-        }
     }
 
     @media (max-width: 768px) {

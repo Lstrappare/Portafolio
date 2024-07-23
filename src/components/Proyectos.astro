@@ -1,27 +1,105 @@
 ---
+import HTMLIcon from '../components/icons/HTMLIcon.astro';
+import CSSIcon from '../components/icons/CSSIcon.astro';
+import JavaScriptIcon from '../components/icons/JavaScriptIcon.astro';
+import ReactIcon from '../components/icons/ReactIcon.astro';
+import AstroIcon from  '../components/icons/AstroIcon.astro';
+import TailwindIcon from '../components/icons/TailwindIcon.astro';
+import NodeIcon from '../components/icons/NodeIcon.astro';
+import ExpressIcon from '../components/icons/ExpressIcon.astro';
+import MySQLIcon from '../components/icons/MySQLIcon.astro';
+import SocialMediaPill from './SocialMediaPill.astro';
+import GithubIcon from './icons/GithubIcon.astro';
+import WebIcon from './icons/WebIcon.astro';
+
+
+const TAGS = {
+    HTML: {
+        name: 'HTML',
+        class: 'bg-orange-800/50',
+        icon: HTMLIcon
+    },
+    CSS: {
+        name: 'CSS',
+        class: 'bg-blue-800/50',
+        icon: CSSIcon
+    },
+    JavaScript: {
+        name: 'JavaScript',
+        class: 'bg-yellow-800/50',
+        icon: JavaScriptIcon
+    },
+    React: {
+        name: 'React',
+        class: 'bg-blue-800/50',
+        icon: ReactIcon
+    },
+    Astro: {
+        name: 'Astro',
+        class: 'bg-red-800/50',
+        icon: AstroIcon
+    },
+    Tailwind: {
+        name: 'Tailwind',
+        class: 'bg-cyan-800/50',
+        icon: TailwindIcon
+    },
+    Node: {
+        name: 'Node',
+        class: 'bg-green-800/50',
+        icon: NodeIcon
+    },
+    Express: {
+        name: 'Express',
+        class: 'bg-gray-800/50',
+        icon: ExpressIcon
+    },
+    MySQL: {
+        name: 'MySQL',
+        class: 'bg-gradient-to-r from-white/50 to-cyan-800/50',
+        icon: MySQLIcon
+    },
+}
 const PROJECTS = [
     {
         title: 'Proyecto 1',
-        description: 'Lorem ipsum dolor',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam in sequi vitae sapiente, culpa maiores velit cumque quas totam delectus? Ad quidem error quo perspiciatis magnam repellendus dolorem dicta laudantium.',
         link: '#',
         github: '#',
         image: 'https://via.placeholder.com/300x200',
-        tags: ['HTML', 'CSS', 'JavaScript']
-    }
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.React, TAGS.Astro, TAGS.Tailwind, TAGS.Node, TAGS.Express, TAGS.MySQL]
+    },
 ]
 ---
 
 {
     PROJECTS.map(({ title, description, link, github, image, tags }) => (
-        <article> 
-            <h3>{title}</h3>
-            <p>{description}</p>
-            <ul>
-                {tags.map((tag) => ( 
-                    <li>{tag}</li> 
-                ))}
-            </ul>
-            <img src={image} alt={`Captura de pantalla del proyecto ${title}`} width="300" height="200" /> 
+        <article class="flex items-center flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 my-10"> 
+            <img src={image} alt={`Captura de pantalla del proyecto ${title}`} width="300" height="200" class="md:w-80 md:h-52 w-full" /> 
+            <div>
+                <h3 class="text-3xl font-bold">{title}</h3>
+                <ul class="flex my-2 gap-2 flex-wrap">
+                    {tags.map((tag) => ( 
+                        <li>
+                            <span class={`flex gap-x-2 font-bold rounded-full text-xs py-1 px-2 backdrop-blur-sm ${tag.class}`}>
+                            <tag.icon class="size-4" />
+                            {tag.name}
+                            </span>
+                        </li> 
+                    ))}
+                </ul>
+                <p class="text-xl">{description}</p>
+                <div class="flex gap-4 my-4">
+                    <SocialMediaPill href={github}>
+                        <GithubIcon />
+                        Github
+                    </SocialMediaPill>
+                    <SocialMediaPill href={link}>
+                        <WebIcon />
+                        Link
+                    </SocialMediaPill>
+                </div>
+            </div>
         </article>
     ))
 }

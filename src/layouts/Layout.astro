@@ -4,7 +4,6 @@ interface Props {
 }
 const { title } = Astro.props;
 import Navbar from '../components/Navbar.astro';
-// Supports weights 100-900
 import '@fontsource-variable/onest';
 ---
 
@@ -12,28 +11,19 @@ import '@fontsource-variable/onest';
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="Mi portafolio personal, creado con Astro" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
-	<div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#002c65_100%)]"></div>
-    <Navbar />
+			<Navbar />
 		<slot />
 	</body>
 </html>
 <style is:global>
-	
-	*,
-	*::before,
-	*::after {
-	  box-sizing: border-box;
-	  margin: 0;
-	  padding: 0;
-	}
-	
+
 	html {
         scroll-behavior: smooth;
 		font-family: 'Onest Variable', sans-serif;
@@ -43,7 +33,10 @@ import '@fontsource-variable/onest';
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 	color: white;
-	background: linear-gradient(#04387c ,black);
+	background: radial-gradient(125% 125% at 50% 10%, #000 40%, #002c65 100%);
+	background-size: cover;
+	background-repeat: none;
+	background-attachment: fixed;
   }
   
 </style>
