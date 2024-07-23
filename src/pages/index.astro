@@ -1,0 +1,45 @@
+---
+import CurriculumIcon from '../components/icons/CurriculumIcon.astro';
+import SocialMediaPill from '../components/SocialMediaPill.astro';
+import GithubIcon from '../components/icons/GithubIcon.astro';
+import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Portafolio">
+    <main class="mx-12">
+        <section class="flex justify-center flex-col items-center">
+            <img src="../../public/FotoMia.png" alt="Una foto elegante mía" width="300" height="300" class="fotomia m-10">
+            <h1 class="md:text-5xl text-4xl my-4 font-bold text-center">Hola 👋 soy José Manuel.</h1>
+            <h2 class="md:text-2xl text-xl text-pretty text-center">Desarrollador web fullstack junior. De CDMX, México 🇲🇽.
+                
+                Creando desde sitios estáticos hasta aplicaciones dinámicas.
+            </h2>
+            <div class="flex justify-center items-center gap-4 my-4">
+                <SocialMediaPill>
+                    <CurriculumIcon />
+                    Curriculim
+                </SocialMediaPill>
+                <SocialMediaPill href="https://github.com/Lstrappare">
+                    <GithubIcon />
+                    Github
+                </SocialMediaPill>
+                <SocialMediaPill href="linkedin.com/in/josé-manuel-cisneros-valero-1b7a3b258">
+                    <LinkedinIcon />
+                    Linkedin
+                </SocialMediaPill>
+            </div>
+            <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#002c65_100%)]"></div>
+        </section>
+        <section>
+            <div class="relative h-full w-full bg-slate-950"><div class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div><div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div></div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .fotomia {
+        filter: contrast(1.08) brightness(1.05);
+        mask-image: linear-gradient(black 80%, transparent);
+    }
+</style>

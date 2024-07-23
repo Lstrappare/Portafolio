@@ -1,0 +1,37 @@
+---
+import Inicio from '../components/icons/Inicio.astro'
+import Sobremi from '../components/icons/Sobremi.astro'
+import Proyectos from '../components/icons/Proyectos.astro'
+import Contacto from '../components/icons/Contacto.astro'
+---
+
+<nav class="fixed p-4 w-full z-10">
+  <ul class="flex justify-around">
+    <li class=""><a href="#" class="flex items-center"><span class="icon"><Inicio /></span><span class="letras">Inicio</span></a></li>
+    <li class=""><a href="#" class="flex items-center"><span class="icon"><Proyectos /></span><span class="letras">Proyectos</span></a></li>
+    <li class=""><a href="#" class="flex items-center"><span class="icon"><Sobremi /></span><span class="letras">Sobre mí</span></a></li>
+    <li class=""><a href="#" class="flex items-center"><span class="icon"><Contacto /></span><span class="letras">Contacto</span></a></li>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    background-color: #000000a0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  @media (min-width: 769px) { 
+  .icon { 
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      bottom: 0;
+    }
+    .letras {
+        display: none;
+      }
+  }
+</style>
