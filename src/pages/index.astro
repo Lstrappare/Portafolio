@@ -4,19 +4,26 @@ import SocialMediaPill from '../components/SocialMediaPill.astro';
 import GithubIcon from '../components/icons/GithubIcon.astro';
 import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
 import Layout from '../layouts/Layout.astro';
+import DownIcon from '../components/icons/DownIcon.astro';
+import CodeIcon from '../components/icons/CodeIcon.astro';
+import { Image } from 'astro:assets';
+import FotoMia from '../components/assets/FotoMia.png'
+import Proyectos from '../components/Proyectos.astro';
 ---
 
 <Layout title="Portafolio">
     <main class="mx-12">
-        <section class="flex justify-center flex-col items-center">
-            <img src="../../public/FotoMia.png" alt="Una foto elegante mía" width="300" height="300" class="fotomia m-10">
-            <h1 class="md:text-5xl text-4xl my-4 font-bold text-center">Hola 👋 soy José Manuel.</h1>
-            <h2 class="md:text-2xl text-xl text-pretty text-center">Desarrollador web fullstack junior. De CDMX, México 🇲🇽.
+        <section class="flex justify-center flex-col items-center h-screen">
+            <Image src={FotoMia} alt="Una foto elegante mía" width="300" height="300" class="fotomia m-10" />
+            <div class="display-flex align-center justify-center flex-wrap">
+                <h1 class="md:text-5xl text-4xl my-4 font-bold text-center">Hola 👋 soy José Manuel.</h1>
+            </div>
+            <h2 class="md:text-2xl text-xl text-pretty text-center">Desarrollador web <b class="text-amber-300">fullstack junior.</b> De CDMX, México 🇲🇽.
                 
                 Creando desde sitios estáticos hasta aplicaciones dinámicas.
             </h2>
-            <div class="flex justify-center items-center gap-4 my-4">
-                <SocialMediaPill>
+            <nav class="flex justify-center items-center gap-4 my-6">
+                <SocialMediaPill href="#p">
                     <CurriculumIcon />
                     Curriculim
                 </SocialMediaPill>
@@ -28,12 +35,16 @@ import Layout from '../layouts/Layout.astro';
                     <LinkedinIcon />
                     Linkedin
                 </SocialMediaPill>
-            </div>
-            <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#002c65_100%)]"></div>
+            </nav>
+            <a href="#proyectos" class="absolute bottom-6 left-1/2 -translate-x-1/2 down">
+                <title>Abajo...</title>
+                <DownIcon class="w-10 h-10 animate-bounce" /> 
+            </a>              
         </section>
-        <section>
-            <div class="relative h-full w-full bg-slate-950"><div class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div><div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div></div>
-        </section>
+        <section class="h-screen pt-24" id="proyectos">
+            <h2 class="md:text-4xl text-3xl flex items-center gap-4 font-bold"><CodeIcon class="w-10 h-10" />Proyectos</h2>
+            <Proyectos />
+        </section>  
     </main>
 </Layout>
 
@@ -42,4 +53,23 @@ import Layout from '../layouts/Layout.astro';
         filter: contrast(1.08) brightness(1.05);
         mask-image: linear-gradient(black 80%, transparent);
     }
+
+    .custom-bounce {
+        animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @media (max-width: 768px) {
+    .down {
+      display: none;
+    }
+  }
 </style>

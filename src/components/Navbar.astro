@@ -5,23 +5,33 @@ import Proyectos from '../components/icons/Proyectos.astro'
 import Contacto from '../components/icons/Contacto.astro'
 ---
 
-<nav class="fixed p-4 w-full z-10">
-  <ul class="flex justify-around">
-    <li class=""><a href="#" class="flex items-center"><span class="icon"><Inicio /></span><span class="letras">Inicio</span></a></li>
-    <li class=""><a href="#" class="flex items-center"><span class="icon"><Proyectos /></span><span class="letras">Proyectos</span></a></li>
-    <li class=""><a href="#" class="flex items-center"><span class="icon"><Sobremi /></span><span class="letras">Sobre mí</span></a></li>
-    <li class=""><a href="#" class="flex items-center"><span class="icon"><Contacto /></span><span class="letras">Contacto</span></a></li>
+<nav class="fixed w-full flex justify-center">
+  <ul class="flex w-11/12 justify-around p-4  my-4 z-10 rounded-full ">
+    <li class=""><a href="#top" class="flex items-center"><span class="icon"><title>Inicio</title><Inicio /></span><span class="letras">Inicio</span></a></li>
+    <li class=""><a href="#proyectos" class="flex items-center"><span class="icon"><title>Proyectos</title><Proyectos /></span><span class="letras">Proyectos</span></a></li>
+    <li class=""><a href="#sobreMi" class="flex items-center"><span class="icon"><title>Sobre mí</title><Sobremi /></span><span class="letras">Sobre mí</span></a></li>
+    <li class=""><a href="#Contacto" class="flex items-center"><span class="icon"><title>Contacto</title><Contacto /></span><span class="letras">Contacto</span></a></li>
   </ul>
 </nav>
 
 <style>
-  nav {
-    background-color: #000000a0;
+  ul {
+    background-color: #00000075;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
   @media (min-width: 769px) { 
-  .icon { 
+    nav {
+      animation: resize auto linear forwards;
+      animation-timeline: scroll(root block);
+    }
+
+    @keyframes resize {
+      0% { opacity: 0; } 
+      30% { opacity: 100% }
+    }
+
+    .icon { 
       display: none;
     }
   }
